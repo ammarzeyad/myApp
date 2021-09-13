@@ -1,27 +1,22 @@
 import React from 'react';
- 
+import HornedBeast from './HornedBeast';
+import newArra from './Data.json';
 
-class Main extends React.Component{
+class Main extends React.Component {
 
-    render(){
-        
+    render() {
+
         return(
-<div> 
-          <h2>
-              
-              {this.props.h}
-
-          </h2>
-
-            <img src={this.props.photo} alt="" />
-
-            <p>
-                {this.props.pargraph}
-
-                </p>
-
+            <div>
+                {newArra.map((element,index) =>{
+                    return( <HornedBeast key={index} title={element.title}
+                        image_url={element.image_url} description ={element.description}
+                        keyword ={element.keyword} horns ={element.horns} />)
+                    
+                })}
             </div>
         )
+
     }
 }
 
