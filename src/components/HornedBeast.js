@@ -1,22 +1,45 @@
-// import React from 'react';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-// class HornedBeast extends React.Component{
-//     render(){
-//         return(
-//             <div>{this.props.horend1}
-//                 <h2>Unicorn Head</h2>
-//                 <img src = "https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80" alt = "Unicorn Head"></img>
-//                 <p>Someone wearing a creepy unicorn head mask</p>
+class HornedBeast extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            numberOfClicks: 0
+        }
+    }
 
-//                 <h2>Rhino Family</h2>
-//                 <img src = " https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80" alt = "Rhino Family"></img>
-//                 <p> Mother (or father) rhino with two babies </p>
-//             </div>
 
-             
-            
-//         )
-//     }
-// }
+    NumberOfLike = () => {
+        this.setState({
+            numberOfClicks: this.state.numberOfClicks + 1
+        })
+    }
+    render() {
+        return (
+            <div>
 
-// export default HornedBeast;
+
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.props.image_url} />
+                    <Card.Body>
+                        <Card.Title>{this.props.title}</Card.Title>
+                        <Card.Text> get more information:
+                            {this.props.description} <br />
+                            The Number of Horns : {this.state.numberOfClicks}
+                        </Card.Text>
+                        <div>
+                            <Button onClick={this.NumberOfLike} variant="Primary">Like</Button>
+                            <p>Likes {this.state.numberOfClicks}</p></div>
+                    </Card.Body>
+                </Card>
+
+            </div>
+
+        )
+    }
+}
+
+export default HornedBeast;
