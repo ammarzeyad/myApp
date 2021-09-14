@@ -33,6 +33,9 @@ class HornedBeast extends React.Component {
                         <div>
                             <Button onClick={this.NumberOfLike} variant="Primary">Like</Button>
                             <p>Likes {this.state.numberOfClicks}</p></div>
+                            <Button onClick={()=>{
+                                this.props.beastNameButton (this.props.title,this.props.image_url,this.props.description)
+                            }}  variant="Primary">Modal</Button>
                     </Card.Body>
                 </Card>
 
