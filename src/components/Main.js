@@ -2,6 +2,7 @@ import React from 'react';
 import HornedBeast from './HornedBeast';
 import newArra from './Data.json';
 import {Modal,Button} from 'react-bootstrap'
+import FormModels from './FormModels';
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -27,6 +28,7 @@ class Main extends React.Component {
 
         return (
             <div>
+                <FormModels /> 
                 {newArra.map((element, index) => {
                     return (<HornedBeast key={index} title={element.title}
                         image_url={element.image_url} description={element.description}
@@ -34,6 +36,8 @@ class Main extends React.Component {
                         beastNameButton={this.beastNameButton} />)
 
                 })}
+
+                
                 <Modal show={this.state.showModal} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>{this.state.beastName.title}</Modal.Title>
