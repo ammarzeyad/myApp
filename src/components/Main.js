@@ -11,7 +11,6 @@ class Main extends React.Component {
             showModal: false
         }
     }
-
     handleClose = () => {
         this.setState({
             showModal: false
